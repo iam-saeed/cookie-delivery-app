@@ -1,0 +1,129 @@
+.container {
+    padding: 50px;
+    display: flex;
+    
+
+}
+.id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #009DAE;
+    font-size: 18px;
+}
+
+.left {
+    flex: 2;
+}
+.thankYou {
+    float: right;
+    width: 100%;
+}
+.right {
+    flex: 1;
+}
+.table {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    border-spacing: 20px;
+}
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #009DAE;
+    font-size: 18px;
+}
+.address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #009DAE;
+    font-size: 18px;
+}
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #009DAE;
+    font-size: 18px;
+}
+
+.row:last-child {
+    flex: 2;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 10%;
+}
+
+
+
+.done {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -50px;
+}
+.inProgress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: inProgress 1s ease infinite alternate;
+}
+
+.undone, .checkedIcon,  .checkedIcon {
+    display: none;
+}
+
+@keyframes inProgress {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.undone {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    opacity: 0.3;
+}
+
+.wrapper {
+    width: 90%;
+    min-height: 300px;
+    max-width: 300px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.totalTextTitle {
+    margin-right: 10px;
+}
+
+.button {
+    height: 30px;
+    background-color: #fff;
+    color: #009DAE;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    cursor: not-allowed;
+    margin-top: 20px;
+}
