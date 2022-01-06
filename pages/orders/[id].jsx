@@ -28,7 +28,7 @@ const Order = () => {
                 <span className={styles.id}>129837819237</span>
               </td>
               <td>
-                <span className={styles.name}>Spongebob Squarepants</span>
+                <span className={styles.name}>Saeed Khan</span>
               </td>
               <td>
                 <span className={styles.address}>124 Conch Street, Bikini Bottom, Marshall Islands 96970</span>
@@ -41,7 +41,7 @@ const Order = () => {
         </div>
         <br />
         <div className={styles.row}>
-          <div className={statusClass(0)}>
+          <div className={statusClass(1)}>
             <Image src="/assets/paid.png" width={30} height={30} alt="" />
             <span>Payment</span>
             <div >

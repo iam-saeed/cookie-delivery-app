@@ -127,3 +127,56 @@
     cursor: not-allowed;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 480px){
+    .container {
+        flex-direction: column;
+    }
+    .trTitle {
+        display: none;
+    }
+    .tr {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .name {
+        font-size: 16px;
+    }
+    .address {
+        font-size: 12px;
+        width: 100%;
+    }
+    .id::before {
+        content: "ORDER_ID: ";
+        padding: 10px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .name::before {
+        content: "Customer: ";
+        padding: 10px;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .total::before {
+        content: "Order Total: ";
+        padding: 10px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .row:last-child{
+        width: 100%;
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inProgress, .done, .undone {
+        margin-bottom: 20px;
+    }
+    .wrapper {
+        width: 100%;
+    }
+}
