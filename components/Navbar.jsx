@@ -25,11 +25,11 @@ const Navbar = () => {
                 <li className={styles.listItem}>Contact</li>
 
             </ul>
-        <div className={styles.item}>
-            <div className={styles.cart}>
-            <Image src="/assets/cart.png" alt='logo' height="30px" width="30px" />
-            <div className={styles.counter}>2</div>
         </div>
+                <div className={styles.item}>
+                    <div className={styles.cart}>
+                    <Image src="/assets/cart.png" alt='logo' height="30px" width="30px" />
+                 <div className={styles.counter}>2</div>
         </div>  
         </div>
         </div>

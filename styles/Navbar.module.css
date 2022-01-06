@@ -76,3 +76,16 @@
     color: #fff;
     font-weight: bold;
 }
+
+@media screen and (max-width: 480px){
+    .item:nth-child(2) {
+        display: none;
+    }
+    .item:nth-child(1) {
+        flex: 3;
+    }
+    .text:last-child {
+        font-size: 15.5px;
+        font-weight: bold;
+    }
+}
