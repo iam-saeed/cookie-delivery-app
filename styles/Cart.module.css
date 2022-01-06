@@ -109,3 +109,62 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+@media screen and (max-width: 480px){
+    .container{
+        flex-direction: column;
+        padding: 20px;
+    }
+    .table {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        justify-content: center;
+    }
+    .trTitle {
+        display: none;
+
+    }
+    .tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px; 
+    }
+    .name, .total {
+        font-size: 24px;
+    }
+    .imgContainer {
+        height: 30vw;
+        width: 30vw;
+    }
+    .extras, .price, .quantity {
+        font-size: 16px;
+    }
+    .remove {
+        margin-top: 10px;
+        width: 40vw;
+    }
+    .price::before {
+        content: "Price: ";
+        padding: 5px;
+        color: #777;
+        font-weight: 500;
+    }
+    .quantity::before{
+        content: "Quantity: ";
+        padding: 5px;
+        color: #777;
+    }
+    .total::before{
+        content: "Total: ";
+        padding: 5px;
+        color: #777;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+}
