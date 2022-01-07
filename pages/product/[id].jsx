@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { addProduct } from '../../redux/cartSlice';
+import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import styles from '../../styles/Product.module.css';
 import axios from 'axios';
@@ -8,9 +10,13 @@ const Product = ({ cookie }) => {
     const [price, setPrice] = useState(cookie.prices[0])
     const [milks, setMilks] = useState([])
     const [quantity, setQuantity] = useState(1)
+    const dispatch = useDispatch();
 
     const changePrice = (num) => {
         setPrice(price + num)
+    }
+    const handleClick = () => {
+        dispatch(addProduct({...cookie, milks, price, quantity}))
     }
 
     const handleSize = (sizeIndex) => {
@@ -66,7 +72,7 @@ const Product = ({ cookie }) => {
                 </div>
                 <div className={styles.add}>
                     <input type="number" defaultValue={1} className={styles.quantity} />
-                    <button className={styles.button}>Add to Cart</button>
+                    <button className={styles.button} onClick={handleClick}>Add to Cart</button>
                 </div>
             </div>
         </div>
