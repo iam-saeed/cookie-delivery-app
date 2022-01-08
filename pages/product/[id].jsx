@@ -65,13 +65,13 @@ const Product = ({ cookie }) => {
                 <div className={styles.milk}>
                     {cookie.milkOptions.map(option => (
                     <div className={styles.option} key={option._id}>
-                        <input onChange={(e) => setQuantity(e.target.value)} type="checkbox" id={option.text} name={option.text} className={styles.checkbox} onChange={(e) => handleChange(e, option)} />
-                        <label htmlFor="w2">{option.text}</label>
+                        <input onChange={(e) => handleChange(e, option)} type="checkbox" id={option.text} name={option.text} className={styles.checkbox} />
+                        <label htmlFor={option.text}>{option.text}</label>
                     </div>
                     ))}
                 </div>
                 <div className={styles.add}>
-                    <input type="number" defaultValue={1} className={styles.quantity} />
+                    <input type="number" defaultValue={1} className={styles.quantity} onChange={(e) => setQuantity(e.target.value)} />
                     <button className={styles.button} onClick={handleClick}>Add to Cart</button>
                 </div>
             </div>
