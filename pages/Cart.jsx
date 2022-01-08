@@ -52,8 +52,8 @@ const Cart = () => {
                             });
                     }}
                     onApprove={function (data, actions) {
-                        return actions.order.capture().then(function () {
-                            // Your code here after capture the order
+                        return actions.order.capture().then(function (details) {
+                            console.log(details)
                         });
                     }}
                 />
@@ -67,6 +67,8 @@ const Cart = () => {
         <div className={styles.container}>
             <div className={styles.left}>
                 <table className={styles.table}>
+                    <tbody>
+
                     <tr className={styles.trTitle}>
                         <th></th>
                         <th>Name</th>
@@ -76,7 +78,9 @@ const Cart = () => {
                         <th>Total</th>
                         <th></th>
                     </tr>
+                    </tbody>
                     {/*  */}
+                    <tbody>
                     {cart.products.map((product) => (
                     <tr  className={styles.tr} key={product._id}>
                         <td>
@@ -110,7 +114,7 @@ const Cart = () => {
                         
                     </tr>
                     ))}
-
+                    </tbody>
                 </table>
             </div>
             <div className={styles.right}>
@@ -131,7 +135,7 @@ const Cart = () => {
                     {open ? (
                     <div className={styles.paymentMethods}>
                         <button className={styles.payButton}>CASH ON DELIVERY</button>
-                    <PayPalScriptProvider options={{ "client-id": "test", components: "buttons", currency: "USD", "disable-funding": "paylater", }} >
+                    <PayPalScriptProvider options={{ "client-id": "AWg-usoBlWPQ1HhW6jRDKlFd2pAZGxAGKf02hFp6CzL4fTSnU97FtU5v2fjscQovfHqfNUeM7BOMH6DG", components: "buttons", currency: "USD", "disable-funding": "paylater", }} >
 				        <ButtonWrapper currency={currency} showSpinner={false} />
 			        </PayPalScriptProvider>
                     </div>
