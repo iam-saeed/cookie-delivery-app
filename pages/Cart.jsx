@@ -2,14 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import styles from '../styles/Cart.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from "react";
-import {
-    PayPalScriptProvider,
-    PayPalButtons,
-    usePayPalScriptReducer
-} from "@paypal/react-paypal-js";
+import { useEffect, useState } from "react";
+import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 const Cart = () => {
+    const [open, setOpen] = useState(false)
     const amount = "2";
     const currency = "USD";
     const style = {"layout":"vertical"};
@@ -131,10 +128,16 @@ const Cart = () => {
                     <div className={styles.totalText}>
                         <b className={styles.totalTextTitle}>Total:</b>${cart.total + 2.50}
                     </div>
-                    <button className={styles.button}>CHECKOUT</button>
+                    {open ? (
+                    <div className={styles.paymentMethods}>
+                        <button className={styles.payButton}>CASH ON DELIVERY</button>
                     <PayPalScriptProvider options={{ "client-id": "test", components: "buttons", currency: "USD", "disable-funding": "paylater", }} >
 				        <ButtonWrapper currency={currency} showSpinner={false} />
 			        </PayPalScriptProvider>
+                    </div>
+                    ) : (
+                        <button onClick={() => setOpen(true)} className={styles.button}>CHECKOUT</button>
+                    )}
                 </div>
             </div>
         </div>
