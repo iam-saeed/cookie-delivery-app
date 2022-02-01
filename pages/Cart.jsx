@@ -6,25 +6,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
 import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { useRouter } from "next/router";
-import reset from "../redux/cartSlice";
+import { reset } from "../redux/cartSlice";
 
 const Cart = () => {
     const cart = useSelector(state => state.cart);
     const [open, setOpen] = useState(false)
+    const [cash, setCash] = useState(false)
     const amount = cart.total + 2.50;
     const currency = "USD";
     const style = {"layout":"vertical"};
     const dispatch = useDispatch();
     const router = useRouter();
     
-    const createOrder = async (data, res) => {
+    const createOrder = async (data) => {
         try {
           const res = await axios.post("http://localhost:3000/api/orders", data);
-            res.status === 201 && router.push(`/orders/` + data._id);
+          if(res.status === 201){
             dispatch(reset());
+            router.push(`/orders/${data._id}`);
+
+          }
           
         } catch (err) {
-          console.log(err.message)
+          console.log(err)
         }
       };
 
@@ -68,6 +72,7 @@ const Cart = () => {
                                 return orderId;
                             });
                     }}
+
                     onApprove={function (data, actions) {
                         return actions.order.capture().then(function (details) {
                             const shipping = details.purchase_units[0].shipping;
